@@ -1,0 +1,43 @@
+{
+  "name": "generator-react-stuff",
+  "version": "0.0.0",
+  "description": "Generates some react component and other stuff.",
+  "homepage": "https://github.com/tcrammond/generator-react-stuff",
+  "author": {
+    "name": "Tyler Crammond",
+    "email": "tyler.crammond@gmail.com",
+    "url": "http://tylercrammond.com"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "generator",
+    "react",
+    "component",
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "yeoman-generator": "^1.0.0",
+    "yosay": "^1.2.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^1.0.0",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-mocha": "^3.0.1",
+    "gulp-nsp": "^2.1.0",
+    "gulp-plumber": "^1.0.0",
+    "yeoman-assert": "^2.2.1",
+    "yeoman-test": "^1.6.0"
+  },
+  "repository": "tcrammond/generator-react-stuff",
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "MIT"
+}
