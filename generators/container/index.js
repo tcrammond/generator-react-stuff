@@ -7,9 +7,14 @@ module.exports = Generator.extend({
   prompting: function () {
 
     this.log(
-      `Let\'s make a ${chalk.cyan('react')} component!` +
-      `\nThis generator will create a react container component skeleton for you.\n`
+      '\n\n' +
+      `Let\'s make a ${chalk.cyan('react')} component!\n` +
+      `This generator will create a react container component skeleton for you.\n\n` +
+      `${chalk.red('Note')} - you don't need to include slashes in any responses :-).\n\n`
     )
+
+    const pathRoot = this.config.get('componentRoot')
+    const hasCustomRoot = !!pathRoot
 
     const prompts = [
       {
@@ -23,17 +28,30 @@ module.exports = Generator.extend({
         name: 'includeCss',
         message: 'Do you want a CSS file?',
         default: true
-      },
-      {
-        type: 'input',
-        name: 'filepath',
-        message: `Enter the path to the existing folder where your new component ${chalk.bold('folder')} should be placed`,
-        default: './src/components'
       }
     ]
 
+    if (hasCustomRoot) {
+      prompts.push({
+        type: 'input',
+        name: 'filepath',
+        message: `Component folder will be placed in your component root (${pathRoot}). Enter any additional path here:`,
+        default: ''
+      })
+    } else {
+      prompts.push({
+        type: 'input',
+        name: 'filepath',
+        message: 'Enter path to where the new component folder should be placed:',
+        default: './src/components'
+      })
+    }
+
     return this.prompt(prompts)
-      .then((props) => this.props = props)
+      .then((props) => {
+        this.props = props
+        if (hasCustomRoot) this.props.filepath = pathRoot + '/' + this.props.filepath
+      })
   },
 
   writing: function () {
