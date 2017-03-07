@@ -1,14 +1,12 @@
 'use strict'
-var Generator = require('yeoman-generator')
-var chalk = require('chalk')
-var yosay = require('yosay')
+const Generator = require('yeoman-generator')
+const chalk = require('chalk')
 
 module.exports = Generator.extend({
   prompting: function () {
-
     this.log(
       '\n\n' +
-      `Let\'s make a ${chalk.cyan('react')} component!\n` +
+      `Let's make a ${chalk.cyan('react')} component!\n` +
       `This generator will create a react container component skeleton for you.\n\n` +
       `${chalk.red('Note')} - you don't need to include slashes in any responses :-).\n\n`
     )

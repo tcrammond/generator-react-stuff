@@ -32,7 +32,13 @@
     "gulp-nsp": "^2.1.0",
     "gulp-plumber": "^1.0.0",
     "yeoman-assert": "^2.2.1",
-    "yeoman-test": "^1.6.0"
+    "yeoman-test": "^1.6.0",
+
+    "eslint": "^3.17.1",
+    "eslint-config-standard": "^7.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
+    "babel-eslint": "^7.1.1",
   },
   "repository": "tcrammond/generator-react-stuff",
   "scripts": {

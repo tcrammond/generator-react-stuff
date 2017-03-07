@@ -1,13 +1,11 @@
 'use strict'
-var Generator = require('yeoman-generator')
-var chalk = require('chalk')
-var yosay = require('yosay')
+const Generator = require('yeoman-generator')
+const chalk = require('chalk')
 
 module.exports = Generator.extend({
   prompting: function () {
-
     this.log(
-      `Let\'s make a ${chalk.cyan('react')} component!` +
+      `Let's make a ${chalk.cyan('react')} component!` +
       `\nThis generator will create a react component skeleton for you.\n`
     )
 
@@ -39,7 +37,7 @@ module.exports = Generator.extend({
     ]
 
     return this.prompt(prompts)
-      .then((props) => this.props = props)
+      .then((props) => { this.props = props })
   },
 
   writing: function () {
