@@ -38,7 +38,7 @@
     "eslint-config-standard": "^7.0.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^2.1.1",
-    "babel-eslint": "^7.1.1",
+    "babel-eslint": "^7.1.1"
   },
   "repository": "tcrammond/generator-react-stuff",
   "scripts": {

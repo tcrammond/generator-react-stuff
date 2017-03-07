@@ -4,7 +4,7 @@ import React, { PropTypes } from 'react'
 
 export default function <%= name %> () {
   return (
-    <div></div>
+    <div><%= name %></div>
   )
 }
 

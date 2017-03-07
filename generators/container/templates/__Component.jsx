@@ -10,7 +10,7 @@ class <%= name %> extends Component {
 
   render () {
     return (
-      <div></div>
+      <div><%= name %></div>
     )
   }
 }

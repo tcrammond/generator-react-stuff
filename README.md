@@ -1,27 +1,32 @@
 # generator-react-stuff [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > Generates some react component and other stuff.
 
+This is a tool to generate react component skeletons.
+
+It can generate stateless function components, es6 class components, and components
+that are connected to Redux store.
+
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-react-stuff using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-react-stuff. If you are unfamiliar with Yeoman, have a read.
 
 ```bash
-npm install -g yo
-npm install -g generator-react-stuff
+# or npm
+yarn install -g yo
+yarn install -g generator-react-stuff
 ```
 
-Then generate your new project:
+## Usage
 
-```bash
-yo react-stuff
-```
+Run commands in the root of your project.
 
-## Getting To Know Yeoman
+To generate a regular component, run:
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+`yo react-stuff`
+
+To generate a container component (i.e. connected to a redux store), run:
+
+`yo react-stuff:container`
 
 ## License
 
