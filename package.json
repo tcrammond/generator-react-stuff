@@ -1,7 +1,7 @@
 {
   "name": "generator-react-stuff",
-  "version": "0.0.0",
-  "description": "Generates some react component and other stuff.",
+  "version": "0.1.0",
+  "description": "Generates react components and other stuff.",
   "homepage": "https://github.com/tcrammond/generator-react-stuff",
   "author": {
     "name": "Tyler Crammond",
