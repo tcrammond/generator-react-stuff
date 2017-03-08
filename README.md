@@ -6,6 +6,8 @@ This is a tool to generate react component skeletons.
 It can generate stateless function components, es6 class components, and components
 that are connected to Redux store.
 
+The format is pretty specific to a particular project I work on. Please submit an issue if you actually use this and want to be able to configure file extensions and whatnot.
+
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-react-stuff. If you are unfamiliar with Yeoman, have a read.
@@ -16,17 +18,50 @@ yarn install -g yo
 yarn install -g generator-react-stuff
 ```
 
-## Usage
+## Set up
 
-Run commands in the root of your project.
-
-To generate a regular component, run:
+To perform set up (**required**), run:
 
 `yo react-stuff`
 
-To generate a container component (i.e. connected to a redux store), run:
+You'll be asked a couple of questions to determine where files should be placed within your project.
+
+* Component root
+* Whether you want to extend class style components from `Component` or `PureComponent`
+
+*Please note that this will create a `.yo-rc.json` in your project root. Add this to your gitignore if you need to.*
+
+## Usage
+
+Please run commands in the root of your project.
+
+#### Generate a component
+
+`yo react-stuff:component`
+
+Options:
+* Name
+* Stateless function vs class
+* CSS file
+* Additional path to where the component folder should be placed
+
+E.g. if your component root was set up as `./src/components`, and you specify additional path of `pages`, the new component folder will be `./src/components/pages/MyComponent`
+
+Output:
+```
+MyComponent/
+  MyComponent.jsx
+  MyComponent.css
+```
+
+#### Generate a 'container' component (i.e. connected to a redux store)
 
 `yo react-stuff:container`
+
+Options:
+* Name
+* CSS file
+* Additional path to where the component folder should be placed
 
 ## License
 
