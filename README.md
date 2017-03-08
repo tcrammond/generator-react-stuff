@@ -20,7 +20,7 @@ yarn install -g generator-react-stuff
 
 ## Set up
 
-To perform set up (**required**), run:
+To perform set up (**required**), run **in the root of your project**:
 
 `yo react-stuff`
 
