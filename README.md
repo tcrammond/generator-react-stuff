@@ -6,6 +6,8 @@ This is a tool to generate react component skeletons.
 It can generate stateless function components, es6 class components, and components
 that are connected to Redux store.
 
+The format is pretty specific to a particular project I work on. Please submit an issue if you actually use this and want to be able to configure file extensions and whatnot.
+
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-react-stuff. If you are unfamiliar with Yeoman, have a read.
