@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from 'react'
+import React, { <%= componentClass %>, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 <% if (includeCss) { %>import styles from './<%= name %>.css'<% } %>
 
-class <%= name %> extends Component {
+class <%= name %> extends <%= componentClass %> {
   static propTypes = {
 
   }

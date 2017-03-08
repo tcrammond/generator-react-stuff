@@ -1,60 +1,35 @@
 'use strict'
 const Generator = require('yeoman-generator')
 const chalk = require('chalk')
+const PROMPTS = require('../../prompts/setup')
 
 module.exports = Generator.extend({
   prompting: function () {
-    this.log(
-      `Let's make a ${chalk.cyan('react')} component!` +
-      `\nThis generator will create a react component skeleton for you.\n`
-    )
-
     const prompts = [
-      {
-        type: 'input',
-        name: 'name',
-        message: 'Name your component (MyComponent)',
-        default: 'MyComponent'
-      },
-      {
-        type: 'confirm',
-        name: 'stateless',
-        message: 'Is this a stateless functional component? (i.e. just a function)',
-        default: true
-      },
-      {
-        type: 'confirm',
-        name: 'includeCss',
-        message: 'Do you want a CSS file?',
-        default: true
-      },
-      {
-        type: 'input',
-        name: 'filepath',
-        message: 'Enter the path to the existing folder where your new component ' + chalk.bold('folder') + ' should be placed',
-        default: './src/components'
-      }
+      PROMPTS.COMPONENT_ROOT,
+      // PROMPTS.REDUCER_ROOT,
+      PROMPTS.COMPONENT_CLASS
     ]
 
+    this.log(chalk.green(`\nHi! 🐱\n\nI need to ask ${prompts.length} questions to make sure files go to the right places:\n`))
+
     return this.prompt(prompts)
-      .then((props) => { this.props = props })
+      .then((props) => {
+        this.props = props
+
+        this.props.componentRoot = this.props.componentRoot.replace(/^[/]*/, '')
+      })
   },
 
   writing: function () {
-    this.destinationRoot(this.props.filepath + '/' + this.props.name)
-    var template = this.props.stateless ? this.templatePath('__Stateless.jsx') : this.templatePath('__Component.jsx')
+    if (this.initialized) return
 
-    this.fs.copyTpl(
-      template,
-      this.destinationPath(this.props.name + '.jsx'),
-      this.props
-    )
+    this.config.set(this.props)
+  },
 
-    if (this.props.includeCss) {
-      this.fs.copy(
-        this.templatePath('__Component.css'),
-        this.destinationPath(this.props.name + '.css')
-      )
-    }
+  end: function () {
+    this.log(chalk.green(`\nAll set up! Let's go 🐈`))
+    this.log(`Try using ${chalk.green('yo react-stuff:component')} or ${chalk.green('yo react-stuff:container')}`)
+    // this.log(`\n⚠️   Please remember to add ${chalk.cyan('.yo-rc.json')} to your ${chalk.cyan('.gitignore')} if you need to. \n`)
   }
 })

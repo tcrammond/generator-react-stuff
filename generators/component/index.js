@@ -1,21 +1,21 @@
 'use strict'
 const Generator = require('yeoman-generator')
 const chalk = require('chalk')
+
 const PROMPTS = require('../../prompts/prompts')
 
-// TODO some base generator with pathRoot and such.
 module.exports = Generator.extend({
   prompting: function () {
     this.log(
-      '\n\n' +
-      `Let's make a ${chalk.cyan('react')} component!\n` +
-      `This generator will create a react container component skeleton for you.\n\n`
+      `Let's make a ${chalk.cyan('react')} component!` +
+      `\nThis generator will create a react component skeleton for you.\n`
     )
 
     const pathRoot = this.config.get('componentRoot')
 
     const prompts = [
       PROMPTS.NAME_COMPONENT,
+      PROMPTS.IS_STATELESS,
       PROMPTS.INCLUDE_CSS,
       PROMPTS.ADDITIONAL_PATH(pathRoot)
     ]
@@ -32,17 +32,23 @@ module.exports = Generator.extend({
 
   writing: function () {
     this.destinationRoot(this.props.filepath + '/' + this.props.name)
+    var template = this.props.stateless ? this.templatePath('__Stateless.jsx') : this.templatePath('__Component.jsx')
 
     this.fs.copyTpl(
-      this.templatePath('__Component.jsx'),
+      template,
       this.destinationPath(this.props.name + '.jsx'),
       this.props
     )
+
     if (this.props.includeCss) {
       this.fs.copy(
         this.templatePath('__Component.css'),
         this.destinationPath(this.props.name + '.css')
       )
     }
+  },
+
+  end: function () {
+    this.log(`Your component has arrived, have fun`)
   }
 })
