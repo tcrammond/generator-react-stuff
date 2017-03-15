@@ -6,18 +6,20 @@ const PROMPTS = require('../../prompts/setup')
 module.exports = Generator.extend({
   prompting: function () {
     const prompts = [
+      PROMPTS.STATE_CONTAINER,
       PROMPTS.COMPONENT_ROOT,
       // PROMPTS.REDUCER_ROOT,
       PROMPTS.COMPONENT_CLASS
     ]
 
-    this.log(chalk.green(`\nHi! 🐱\n\nI need to ask ${prompts.length} questions to make sure files go to the right places:\n`))
+    this.log(chalk.green(`\nHi! 🐱\n\nI need to ask a few questions to make sure files go to the right places:\n`))
 
     return this.prompt(prompts)
       .then((props) => {
         this.props = props
 
         this.props.componentRoot = this.props.componentRoot.replace(/^[/]*/, '')
+        if (props.stateContainer === 'None') this.props.stateContainer = ''
       })
   },
 

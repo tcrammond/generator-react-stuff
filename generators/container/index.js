@@ -33,8 +33,11 @@ module.exports = Generator.extend({
   writing: function () {
     this.destinationRoot(this.props.filepath + '/' + this.props.name)
 
+    const container = this.config.get('stateContainer') || 'Redux'
+    const template = `__${container}Component.jsx`
+
     this.fs.copyTpl(
-      this.templatePath('__Component.jsx'),
+      this.templatePath(template),
       this.destinationPath(this.props.name + '.jsx'),
       this.props
     )

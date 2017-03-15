@@ -5,6 +5,14 @@ const COMPONENT_ROOT = {
   default: './src/components'
 }
 
+const STATE_CONTAINER = {
+  type: 'list',
+  name: 'stateContainer',
+  message: 'Choose your state container:',
+  choices: ['Redux', 'Mobx', 'None'],
+  default: 0
+}
+
 const REDUCER_ROOT = {
   type: 'input',
   name: 'reducerRoot',
@@ -21,6 +29,7 @@ const COMPONENT_CLASS = {
 }
 
 module.exports = {
+  STATE_CONTAINER,
   COMPONENT_ROOT,
   REDUCER_ROOT,
   COMPONENT_CLASS
